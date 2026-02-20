@@ -5,14 +5,14 @@ import { useAuth } from '@/context/AuthContext';
 import { GraduationCap, Mail, Lock, Eye, EyeOff } from 'lucide-react';
 
 export function LoginPage() {
-  const { profile, loading, error, loginWithEmail, loginWithGoogle } = useAuth();
+  const { user, loading, error, loginWithEmail, loginWithGoogle } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // If already logged in, go to dashboard
-  if (profile) {
+  // Redirect to dashboard if already logged in
+  if (user) {
     return <Navigate to="/dashboard" replace />;
   }
 
@@ -55,7 +55,7 @@ export function LoginPage() {
             Think Beyond.<br />Lead Forward.
           </h2>
           <p className="text-sm text-white/70">
-            Welcome to the AUY portal.WUahahahaha Manage academics, track attendance, view results, and stay connected.
+            Welcome to the AUY portal. Manage academics, track attendance, view results, and stay connected.
           </p>
         </div>
       </div>
