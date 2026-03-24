@@ -84,19 +84,20 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-7 animate-fade-up pb-4">      {/* ===== DEBUG PANEL (shows raw data) ===== */}
-      <div style="background:#f0f0f0; border:3px solid red; padding:1rem; margin-bottom:1rem; border-radius:12px;">
-        <h3 style="color:black;">🐛 DEBUG – Raw Data</h3>
-        <p style="color:black;"><strong>Student email:</strong> {currentStudent?.email}</p>
-        <p style="color:black;"><strong>Students total:</strong> {students?.length}</p>
-        <p style="color:black;"><strong>Courses total:</strong> {courses?.length}</p>
-        <p style="color:black;"><strong>Enrollments total:</strong> {enrollments?.length}</p>
+            {/* ===== DEBUG PANEL (shows raw data) ===== */}
+      <div style={{ background: "#f0f0f0", border: "3px solid red", padding: "1rem", marginBottom: "1rem", borderRadius: "12px" }}>
+        <h3 style={{ color: "black" }}>🐛 DEBUG – Raw Data</h3>
+        <p style={{ color: "black" }}><strong>Student email:</strong> {currentStudent?.email}</p>
+        <p style={{ color: "black" }}><strong>Students total:</strong> {students?.length}</p>
+        <p style={{ color: "black" }}><strong>Courses total:</strong> {courses?.length}</p>
+        <p style={{ color: "black" }}><strong>Enrollments total:</strong> {enrollments?.length}</p>
         <details>
-          <summary style="color:black;">Show first 3 enrollments</summary>
-          <pre style="color:black;">{JSON.stringify(enrollments?.slice(0,3), null, 2)}</pre>
+          <summary style={{ color: "black" }}>Show first 3 enrollments</summary>
+          <pre style={{ color: "black" }}>{JSON.stringify(enrollments?.slice(0,3), null, 2)}</pre>
         </details>
         <details>
-          <summary style="color:black;">Show first 2 courses</summary>
-          <pre style="color:black;">{JSON.stringify(courses?.slice(0,2), null, 2)}</pre>
+          <summary style={{ color: "black" }}>Show first 2 courses</summary>
+          <pre style={{ color: "black" }}>{JSON.stringify(courses?.slice(0,2), null, 2)}</pre>
         </details>
       </div>
 
@@ -289,19 +290,20 @@ export default function Dashboard() {
                     className="p-3.5 rounded-2xl transition-all"
                     style={{ background: style.bg, border:`1px solid ${style.color}22` }}
                   >      {/* ===== DEBUG PANEL (shows raw data) ===== */}
-      <div style="background:#f0f0f0; border:3px solid red; padding:1rem; margin-bottom:1rem; border-radius:12px;">
-        <h3 style="color:black;">🐛 DEBUG – Raw Data</h3>
-        <p style="color:black;"><strong>Student email:</strong> {currentStudent?.email}</p>
-        <p style="color:black;"><strong>Students total:</strong> {students?.length}</p>
-        <p style="color:black;"><strong>Courses total:</strong> {courses?.length}</p>
-        <p style="color:black;"><strong>Enrollments total:</strong> {enrollments?.length}</p>
+            {/* ===== DEBUG PANEL (shows raw data) ===== */}
+      <div style={{ background: "#f0f0f0", border: "3px solid red", padding: "1rem", marginBottom: "1rem", borderRadius: "12px" }}>
+        <h3 style={{ color: "black" }}>🐛 DEBUG – Raw Data</h3>
+        <p style={{ color: "black" }}><strong>Student email:</strong> {currentStudent?.email}</p>
+        <p style={{ color: "black" }}><strong>Students total:</strong> {students?.length}</p>
+        <p style={{ color: "black" }}><strong>Courses total:</strong> {courses?.length}</p>
+        <p style={{ color: "black" }}><strong>Enrollments total:</strong> {enrollments?.length}</p>
         <details>
-          <summary style="color:black;">Show first 3 enrollments</summary>
-          <pre style="color:black;">{JSON.stringify(enrollments?.slice(0,3), null, 2)}</pre>
+          <summary style={{ color: "black" }}>Show first 3 enrollments</summary>
+          <pre style={{ color: "black" }}>{JSON.stringify(enrollments?.slice(0,3), null, 2)}</pre>
         </details>
         <details>
-          <summary style="color:black;">Show first 2 courses</summary>
-          <pre style="color:black;">{JSON.stringify(courses?.slice(0,2), null, 2)}</pre>
+          <summary style={{ color: "black" }}>Show first 2 courses</summary>
+          <pre style={{ color: "black" }}>{JSON.stringify(courses?.slice(0,2), null, 2)}</pre>
         </details>
       </div>
                     <div className="flex items-center gap-2 mb-1">
@@ -364,19 +366,20 @@ export default function Dashboard() {
                       border: `1.5px solid ${done ? '#86efac' : '#e2e5eb'}`,
                     }}
                   >      {/* ===== DEBUG PANEL (shows raw data) ===== */}
-      <div style="background:#f0f0f0; border:3px solid red; padding:1rem; margin-bottom:1rem; border-radius:12px;">
-        <h3 style="color:black;">🐛 DEBUG – Raw Data</h3>
-        <p style="color:black;"><strong>Student email:</strong> {currentStudent?.email}</p>
-        <p style="color:black;"><strong>Students total:</strong> {students?.length}</p>
-        <p style="color:black;"><strong>Courses total:</strong> {courses?.length}</p>
-        <p style="color:black;"><strong>Enrollments total:</strong> {enrollments?.length}</p>
+            {/* ===== DEBUG PANEL (shows raw data) ===== */}
+      <div style={{ background: "#f0f0f0", border: "3px solid red", padding: "1rem", marginBottom: "1rem", borderRadius: "12px" }}>
+        <h3 style={{ color: "black" }}>🐛 DEBUG – Raw Data</h3>
+        <p style={{ color: "black" }}><strong>Student email:</strong> {currentStudent?.email}</p>
+        <p style={{ color: "black" }}><strong>Students total:</strong> {students?.length}</p>
+        <p style={{ color: "black" }}><strong>Courses total:</strong> {courses?.length}</p>
+        <p style={{ color: "black" }}><strong>Enrollments total:</strong> {enrollments?.length}</p>
         <details>
-          <summary style="color:black;">Show first 3 enrollments</summary>
-          <pre style="color:black;">{JSON.stringify(enrollments?.slice(0,3), null, 2)}</pre>
+          <summary style={{ color: "black" }}>Show first 3 enrollments</summary>
+          <pre style={{ color: "black" }}>{JSON.stringify(enrollments?.slice(0,3), null, 2)}</pre>
         </details>
         <details>
-          <summary style="color:black;">Show first 2 courses</summary>
-          <pre style="color:black;">{JSON.stringify(courses?.slice(0,2), null, 2)}</pre>
+          <summary style={{ color: "black" }}>Show first 2 courses</summary>
+          <pre style={{ color: "black" }}>{JSON.stringify(courses?.slice(0,2), null, 2)}</pre>
         </details>
       </div>
                     <div className="flex items-center justify-between mb-3">
@@ -408,6 +411,7 @@ export default function Dashboard() {
     </div>
   );
 }
+
 
 
 
