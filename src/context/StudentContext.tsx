@@ -55,7 +55,7 @@ export function StudentProvider({ children }: { children: React.ReactNode }) {
     try {
       const allStudents = await fetchStudents();
       setStudents(allStudents);
-      const student = allStudents.find(s => s.email === email);
+      const student = allStudents.find(s => s.email?.toLowerCase().trim() === email?.toLowerCase().trim());
       if (!student) {
         setError('Email not found. Please use your AUY email.');
         return false;
@@ -156,4 +156,5 @@ export function useStudent() {
   }
   return context;
 }
+
 
