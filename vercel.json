@@ -8,5 +8,8 @@
       "src": "package.json",
       "use": "@vercel/static-build"
     }
-  ]
+  ],
+  "env": {
+    "NODE_VERSION": "20"
+  }
 }

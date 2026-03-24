@@ -1,4 +1,4 @@
-const GOOGLE_CLIENT_ID = '316467644383-78ueu8svimuqvshpplpeg0vs3d5ro49r.apps.googleusercontent.com';
+﻿import { jwtDecode } from 'jwt-decode';
 
 export interface GoogleUser {
   email: string;
@@ -7,22 +7,11 @@ export interface GoogleUser {
   sub: string;
 }
 
-export function getGoogleClientId(): string {
-  return GOOGLE_CLIENT_ID;
-}
-
-export function parseJwt(token: string): GoogleUser | null {
+export const decodeGoogleCredential = (credential: string): GoogleUser | null => {
   try {
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(
-      atob(base64)
-        .split('')
-        .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
-        .join('')
-    );
-    return JSON.parse(jsonPayload);
-  } catch {
+    return jwtDecode<GoogleUser>(credential);
+  } catch (error) {
+    console.error('Failed to decode Google credential:', error);
     return null;
   }
-}
+};

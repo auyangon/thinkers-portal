@@ -1,4 +1,4 @@
-import {
+﻿import {
   BookOpen, TrendingUp, Clock, Award, CalendarDays,
   CheckCircle2, AlertCircle, Zap, ArrowUpRight, Flame,
 } from 'lucide-react';
@@ -37,9 +37,9 @@ const CARD_THEMES = [
 ];
 
 const PRIORITY_STYLES: Record<string, { bg: string; color: string; label: string }> = {
-  high:   { bg: '#fef2f2', color: '#dc2626', label: '🔴 Urgent' },
-  medium: { bg: '#fffbeb', color: '#d97706', label: '🟡 Notice' },
-  low:    { bg: '#f0fdf4', color: '#16a34a', label: '🟢 Info'   },
+  high:   { bg: '#fef2f2', color: '#dc2626', label: 'ðŸ”´ Urgent' },
+  medium: { bg: '#fffbeb', color: '#d97706', label: 'ðŸŸ¡ Notice' },
+  low:    { bg: '#f0fdf4', color: '#16a34a', label: 'ðŸŸ¢ Info'   },
 };
 
 export default function Dashboard() {
@@ -48,7 +48,7 @@ export default function Dashboard() {
     quests, studentQuests, announcements, schedule, loading,
   } = useStudent();
 
-  if (loading) return <LoadingSpinner message="Loading dashboard…" />;
+  if (loading) return <LoadingSpinner message="Loading dashboardâ€¦" />;
 
   const studentEnrollments = enrollments.filter(e => e.StudentID === currentStudent?.StudentID);
   const enrolledCourseIds  = studentEnrollments.map(e => e.CourseID);
@@ -73,7 +73,7 @@ export default function Dashboard() {
 
   const statCards = [
     { label: 'Courses',      value: enrolledCourses.length,      icon: BookOpen,   suffix: '', theme: CARD_THEMES[0] },
-    { label: 'GPA',          value: currentStudent?.GPA || '—',  icon: TrendingUp, suffix: '', theme: CARD_THEMES[1] },
+    { label: 'GPA',          value: currentStudent?.GPA || 'â€”',  icon: TrendingUp, suffix: '', theme: CARD_THEMES[1] },
     { label: 'Attendance',   value: attRate,                      icon: Clock,      suffix: '%', theme: CARD_THEMES[2] },
     { label: 'Quest Points', value: totalPts,                     icon: Award,      suffix: 'pts', theme: CARD_THEMES[3] },
   ];
@@ -88,7 +88,7 @@ export default function Dashboard() {
   return (
     <div className="space-y-7 animate-fade-up pb-4">
 
-      {/* ── HERO WELCOME ──────────────────────────────────────── */}
+      {/* â”€â”€ HERO WELCOME â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div
         className="rounded-3xl overflow-hidden relative shimmer-hover"
         style={{
@@ -127,7 +127,7 @@ export default function Dashboard() {
               </span>
             </div>
             <h1 className="font-extrabold text-white" style={{ fontSize:'clamp(1.6rem,3vw,2.4rem)', lineHeight:1.15 }}>
-              Hey, {firstName} 👋
+              Hey, {firstName} ðŸ‘‹
             </h1>
             <p style={{ color:'rgba(255,255,255,0.6)', marginTop:8, fontSize:'0.9rem' }}>
               {new Date().toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' })}
@@ -145,7 +145,7 @@ export default function Dashboard() {
               className="px-5 py-3.5 rounded-2xl text-center"
               style={{ background:'rgba(212,175,55,0.18)', backdropFilter:'blur(8px)', border:'1px solid rgba(212,175,55,0.3)', minWidth:90 }}
             >
-              <p className="font-bold text-white text-xl" style={{ color:'#d4af37' }}>{currentStudent?.GPA || '—'}</p>
+              <p className="font-bold text-white text-xl" style={{ color:'#d4af37' }}>{currentStudent?.GPA || 'â€”'}</p>
               <p style={{ color:'rgba(255,255,255,0.55)', fontSize:11, marginTop:2 }}>GPA</p>
             </div>
             <div
@@ -159,7 +159,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* ── STAT CARDS ─────────────────────────────────────────── */}
+      {/* â”€â”€ STAT CARDS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {statCards.map((s, i) => (
           <div
@@ -184,7 +184,7 @@ export default function Dashboard() {
         ))}
       </div>
 
-      {/* ── MAIN GRID ──────────────────────────────────────────── */}
+      {/* â”€â”€ MAIN GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
 
         {/* Today's Schedule */}
@@ -209,8 +209,8 @@ export default function Dashboard() {
 
           {todaySched.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-12 gap-3">
-              <div className="text-5xl">😴</div>
-              <p className="text-sm font-medium" style={{ color:'#8896a8' }}>No classes today — enjoy your break!</p>
+              <div className="text-5xl">ðŸ˜´</div>
+              <p className="text-sm font-medium" style={{ color:'#8896a8' }}>No classes today â€” enjoy your break!</p>
             </div>
           ) : (
             <div className="space-y-3">
@@ -240,7 +240,7 @@ export default function Dashboard() {
                   <div className="flex-1 min-w-0">
                     <p className="font-semibold text-sm truncate" style={{ color:'#0f1923' }}>{item.CourseName}</p>
                     <p className="text-xs mt-0.5" style={{ color:'#8896a8' }}>
-                      {item.Instructor} · Room {item.Room}
+                      {item.Instructor} Â· Room {item.Room}
                     </p>
                   </div>
                   <div
@@ -291,7 +291,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* ── ACTIVE QUESTS ─────────────────────────────────────── */}
+      {/* â”€â”€ ACTIVE QUESTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="bento-card p-6">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
@@ -301,7 +301,7 @@ export default function Dashboard() {
             <div>
               <h2 className="font-bold text-[15px]" style={{ color:'#0f1923' }}>Active Quests</h2>
               <p className="text-xs" style={{ color:'#8896a8' }}>
-                {doneSQs.length} / {myQuests.length} completed · {totalPts} pts earned
+                {doneSQs.length} / {myQuests.length} completed Â· {totalPts} pts earned
               </p>
             </div>
           </div>
@@ -315,7 +315,7 @@ export default function Dashboard() {
 
         {myQuests.length === 0 ? (
           <div className="flex flex-col items-center py-10 gap-2">
-            <span className="text-4xl">🎯</span>
+            <span className="text-4xl">ðŸŽ¯</span>
             <p className="text-sm" style={{ color:'#8896a8' }}>No active quests assigned yet</p>
           </div>
         ) : (
@@ -366,3 +366,5 @@ export default function Dashboard() {
     </div>
   );
 }
+
+
