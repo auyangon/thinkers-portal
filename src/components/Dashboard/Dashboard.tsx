@@ -3,7 +3,7 @@
   CheckCircle2, AlertCircle, Zap, ArrowUpRight, Flame,
 } from 'lucide-react';
 import { useStudent } from '../../context/StudentContext';
-import LoadingSpinner from '../UI/LoadingSpinner';
+import isLoadingSpinner from '../UI/isLoadingSpinner';
 
 const CARD_THEMES = [
   {
@@ -43,12 +43,9 @@ const PRIORITY_STYLES: Record<string, { bg: string; color: string; label: string
 };
 
 export default function Dashboard() {
-  const {
-    currentStudent, courses, enrollments, attendance,
-    quests, studentQuests, announcements, schedule, loading,
-  } = useStudent();
+  const { currentStudent, students, courses, enrollments, attendance, quests, studentQuests, announcements, schedule, isLoading } = useStudent();
 
-  if (loading) return <LoadingSpinner message="Loading dashboardâ€¦" />;
+  if (isLoading) return <isLoadingSpinner message="isLoading dashboardâ€¦" />;
 
   const studentEnrollments = enrollments.filter(e => e.StudentID === currentStudent?.StudentID);
   const enrolledCourseIds  = studentEnrollments.map(e => e.CourseID);
@@ -411,6 +408,7 @@ export default function Dashboard() {
     </div>
   );
 }
+
 
 
 
