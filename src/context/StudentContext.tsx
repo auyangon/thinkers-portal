@@ -2,13 +2,13 @@
 import {
   fetchStudents,
   fetchCourses,
-  fetchEnrollments,
+  fetchEnrollmentsByEmail,
   fetchSchedule,
-  fetchAttendance,
+  fetchAttendanceByEmail,
   fetchQuests,
-  fetchStudentQuests,
+  fetchStudentQuestsByEmail,
   fetchAnnouncements,
-  fetchRequests,
+  fetchRequestsByEmail,
 } from '../services/api';
 import type { Student, Course, Enrollment, Schedule, Attendance, Quest, StudentQuest, Announcement, Request } from '../types';
 
@@ -60,31 +60,41 @@ export function StudentProvider({ children }: { children: React.ReactNode }) {
         setError('Email not found. Please use your AUY email.');
         return false;
       }
-      setCurrentStudent(student); console.log("👤 Student set:", student?.studentName);
-      
-      const results = await Promise.all([
+      setCurrentStudent(student);
+
+      const [
+        allCourses,
+        studentEnrollments,
+        allSchedule,
+        studentAttendance,
+        allQuests,
+        studentStudentQuests,
+        allAnnouncements,
+        studentRequests,
+      ] = await Promise.all([
         fetchCourses(),
-        fetchEnrollments(),
+        fetchEnrollmentsByEmail(email),
         fetchSchedule(),
-        fetchAttendance(),
+        fetchAttendanceByEmail(email),
         fetchQuests(),
-        fetchStudentQuests(),
+        fetchStudentQuestsByEmail(email),
         fetchAnnouncements(),
-        fetchRequests()
+        fetchRequestsByEmail(email),
       ]);
-      
-      setCourses(results[0]); console.log("📊 Courses set:", results[0]?.length);
-      setEnrollments(results[1]); console.log("📊 Enrollments set:", results[1]?.length);
-      setSchedule(results[2]);
-      setAttendance(results[3]);
-      setQuests(results[4]);
-      setStudentQuests(results[5]);
-      setAnnouncements(results[6]);
-      setRequests(results[7]);
-      
+
+      setCourses(allCourses);
+      setEnrollments(studentEnrollments);
+      setSchedule(allSchedule);
+      setAttendance(studentAttendance);
+      setQuests(allQuests);
+      setStudentQuests(studentStudentQuests);
+      setAnnouncements(allAnnouncements);
+      setRequests(studentRequests);
+
       return true;
     } catch (err) {
-      setError('Failed to load data');
+      console.error('Login failed:', err);
+      setError('Failed to load data. Please try again.');
       return false;
     } finally {
       setIsLoading(false);
@@ -102,7 +112,6 @@ export function StudentProvider({ children }: { children: React.ReactNode }) {
     setStudentQuests([]);
     setAnnouncements([]);
     setRequests([]);
-    setError(null);
   };
 
   const refreshData = async () => {
@@ -156,5 +165,3 @@ export function useStudent() {
   }
   return context;
 }
-
-

@@ -21,3 +21,21 @@ export const fetchQuests = () => fetchSheet('Quests');
 export const fetchStudentQuests = () => fetchSheet('StudentQuests');
 export const fetchAnnouncements = () => fetchSheet('Announcements');
 export const fetchRequests = () => fetchSheet('Requests');
+
+// Email‑specific versions
+export const fetchEnrollmentsByEmail = async (email) => {
+  const all = await fetchEnrollments();
+  return all.filter(e => e.email?.toLowerCase().trim() === email?.toLowerCase().trim());
+};
+export const fetchAttendanceByEmail = async (email) => {
+  const all = await fetchAttendance();
+  return all.filter(a => a.email?.toLowerCase().trim() === email?.toLowerCase().trim());
+};
+export const fetchStudentQuestsByEmail = async (email) => {
+  const all = await fetchStudentQuests();
+  return all.filter(sq => sq.email?.toLowerCase().trim() === email?.toLowerCase().trim());
+};
+export const fetchRequestsByEmail = async (email) => {
+  const all = await fetchRequests();
+  return all.filter(r => r.email?.toLowerCase().trim() === email?.toLowerCase().trim());
+};
