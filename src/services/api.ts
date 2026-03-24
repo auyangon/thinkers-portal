@@ -1,6 +1,6 @@
 ﻿const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbyfmemkEGxuQiDwTEGQzS6IsyzUEl1PtO-zX4_Ml9hYi5Hn0OcCBm7U5iyIed37XHTI/exec';
 
-export async function fetchSheet(sheetName: string) {
+export async function fetchSheet(sheetName) {
   try {
     const url = API_BASE_URL + '?sheet=' + sheetName;
     console.log('📡 Fetching:', sheetName);
