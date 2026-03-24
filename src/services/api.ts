@@ -1,4 +1,4 @@
-﻿const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbyfmemkEGxuQiDwTEGQzS6IsyzUEl1PtO-zX4_Ml9hYi5Hn0OcCBm7UYIed37XHTI/exec';
+﻿const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbyfmemkEGxuQiDwTEGQzS6IsyzUEl1PtO-zX4_Ml9hYi5Hn0OcCBm7U5iyIed37XHTI/exec';
 
 export async function fetchSheet(sheetName) {
   try {
@@ -21,17 +21,3 @@ export const fetchQuests = () => fetchSheet('Quests');
 export const fetchStudentQuests = () => fetchSheet('StudentQuests');
 export const fetchAnnouncements = () => fetchSheet('Announcements');
 export const fetchRequests = () => fetchSheet('Requests');
-
-export async function addRequest(data) {
-  try {
-    const response = await fetch(API_BASE_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sheet: 'Requests', action: 'add', data }),
-    });
-    return await response.json();
-  } catch (error) {
-    console.error('Error adding request', error);
-    return { error: error.message };
-  }
-}
